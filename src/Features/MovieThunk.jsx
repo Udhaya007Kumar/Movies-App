@@ -6,6 +6,22 @@ import axios from "axios";
 
 
 
+
+export const homeMovieDetails = createAsyncThunk(
+  'homemovie/fetch',
+  async(imdbID)=>{
+    try {
+      const response =await axios.get("http://www.omdbapi.com/?s=Billa&type=movie&apikey=257ee551");
+      return response.data;
+    } catch (error) {
+      return console.log(error);
+    }
+  }
+)
+
+
+
+
 export const moviesSerarchList = createAsyncThunk(
     'movie/fetch',
     async (searchQuery) => {
@@ -32,5 +48,6 @@ export const moviesSerarchList = createAsyncThunk(
     }
   )
  
+
 
 

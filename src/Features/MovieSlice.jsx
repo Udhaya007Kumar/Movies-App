@@ -1,6 +1,6 @@
 import {createSlice } from '@reduxjs/toolkit'
-import {  moviesSerarchList ,selectMovieDetails } from './MovieThunk';
-
+import {  homeMovieDetails, moviesSerarchList ,selectMovieDetails } from './MovieThunk';
+import { useEffect } from 'react';
 
 
 
@@ -9,6 +9,7 @@ const initialState ={
     movieList:[],
     serachQuery:'',
     movieDetails:[],
+    homeMovies:[],
    
    
 }
@@ -37,6 +38,9 @@ const MovieSlice =createSlice({
             //state.status = 'succeeded';
             state.movieDetails=action.payload
             
+        })
+        .addCase(homeMovieDetails.fulfilled,(state,action)=>{
+            state.homeMovies =action.payload.Search
         })
         
     }
