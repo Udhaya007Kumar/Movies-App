@@ -11,7 +11,7 @@ export const homeMovieDetails = createAsyncThunk(
   'homemovie/fetch',
   async()=>{
     try {
-      const response =await axios.get("http://www.omdbapi.com/?s=Billa&type=movie&apikey=257ee551");
+      const response =await axios.get("https://www.omdbapi.com/?s=Billa&type=movie&apikey=257ee551");
       return response.data;
     } catch (error) {
       return console.log(error);
@@ -26,7 +26,7 @@ export const moviesSerarchList = createAsyncThunk(
     'movie/fetch',
     async (searchQuery) => {
       try {
-        const response = await axios.get(`http://www.omdbapi.com/?s=${searchQuery}&type=movie&apikey=257ee551`);
+        const response = await axios.get(`https://www.omdbapi.com/?s=${searchQuery}&type=movie&apikey=257ee551`);
         return response.data;
       } catch (error) {
         // Handle error, and return a rejected action if necessary
@@ -40,7 +40,7 @@ export const moviesSerarchList = createAsyncThunk(
     'movieDetails/fetch',
     async(imdbID)=>{
       try {
-        const response =await axios.get(`http://www.omdbapi.com/?i=${imdbID}&apikey=257ee551`);
+        const response =await axios.get(`https://www.omdbapi.com/?i=${imdbID}&apikey=257ee551`);
         return response.data;
       } catch (error) {
         return console.log(error);
